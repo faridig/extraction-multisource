@@ -1,0 +1,6 @@
+pandas
+pyodbc
+pyarrow
+polars
+python-dotenv
+requests

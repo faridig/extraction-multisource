@@ -69,36 +69,33 @@ Concevoir un pipeline organisé avec des étapes distinctes et bien documentées
 - Limiter l’impact sur les bases de production (extraction planifiée pendant les heures creuses).
 - Manipuler les fichiers Parquet et CSV compressés sans étape de décompression inutile.
 
-Voici l’arborescence du projet pour organiser les données, scripts, logs et configurations :
-
-```plaintext
-extraction-multisource/
-├── config/                    # Fichiers de configuration (ex : config.yaml, credentials.json)
-├── data/                      # Données brutes et transformées
-│   ├── raw/                   # Données brutes extraites des sources
-│   │   ├── sql/               # Données extraites de la base SQL
-│   │   ├── parquet/           # Données extraites des fichiers Parquet
-│   │   ├── csv/               # Données extraites des fichiers CSV compressés
-│   │   └── nlp/               # Données textuelles brutes (reviews textuelles)
-│   ├── processed/             # Données transformées et prêtes à l'utilisation
-│   │   ├── images/            # Images extraites des fichiers Parquet
-│   │   ├── csv/               # Données tabulaires nettoyées
-│   │   └── metadata/          # Fichiers associant les métadonnées des avis et des images
-├── logs/                      # Logs pour suivre l’exécution des scripts
-│   ├── extraction.log         # Log des étapes d'extraction
-│   └── transformation.log     # Log des étapes de transformation
-├── notebooks/                 # Notebooks Jupyter pour l'exploration initiale des données
-│   ├── exploration_sql.ipynb  # Exploration des données SQL
-│   ├── exploration_parquet.ipynb # Exploration des fichiers Parquet
-│   └── exploration_csv.ipynb  # Exploration des fichiers CSV
-├── scripts/                   # Scripts d'extraction et transformation
-│   ├── sql_extraction.py      # Script pour extraire les données SQL
-│   ├── parquet_extraction.py  # Script pour manipuler les fichiers Parquet
-│   ├── csv_extraction.py      # Script pour traiter les fichiers CSV compressés
-│   ├── nlp_extraction.py      # Script pour organiser les données NLP
-│   ├── transform.py           # Script de transformation des données
-│   └── main_pipeline.py       # Script principal orchestrant toutes les étapes
-├── .gitignore                 # Fichiers ou dossiers à ignorer par Git
-├── README.md                  # Documentation principale du projet
-├── requirements.txt           # Liste des dépendances Python nécessaires
-└── install.sh                 # Script d'installation et de configuration initiale
+📁 extraction_multisource
+  ├── install.sh                # Script d'installation automatique des dépendances
+  ├── main.py                   # Script principal orchestrant toutes les étapes du pipeline
+  ├── requirements.txt          # Liste des dépendances Python
+  ├── README.md                 # Documentation du projet
+  ├── .gitignore                # Fichiers et dossiers à exclure du contrôle de version Git
+  ├── 📁 src                    # Contient les scripts modulaires
+  │     ├── 📁 extraction       # Scripts pour l'extraction des données
+  │     │     ├── extract_sql.py      # Script pour extraire les données depuis la base SQL
+  │     │     ├── extract_parquet.py  # Script pour extraire les fichiers Parquet
+  │     │     ├── extract_csv.py      # Script pour extraire les fichiers CSV
+  │     ├── 📁 transformation    # Scripts pour transformer et organiser les données
+  │     │     ├── transform_to_csv.py # Transformation des données tabulaires en CSV
+  │     │     ├── image_processing.py # Traitement et extraction des images encodées
+  │     ├── 📁 utils            # Contient les outils utilitaires
+  │           ├── sas_generator.py    # Génération des SAS tokens pour l'accès au Data Lake
+  │           ├── logger.py           # Gestion des logs
+  │           ├── error_handler.py    # Gestion des erreurs et exceptions
+  ├── 📁 data                   # Dossier pour organiser les données
+  │     ├── 📁 raw              # Données brutes extraites
+  │     │     ├── sql           # Données issues de la base SQL
+  │     │     ├── parquet       # Données extraites des fichiers Parquet
+  │     │     ├── csv           # Données extraites des fichiers CSV
+  │     ├── 📁 processed        # Données transformées
+  │           ├── csv_final     # Données finales en CSV
+  │           ├── images        # Images extraites et sauvegardées
+  ├── 📁 tests                  # Scripts de tests unitaires pour valider le code
+        ├── test_extract_sql.py      # Tests pour le script SQL
+        ├── test_extract_parquet.py  # Tests pour le script Parquet
+        ├── test_transform.py        # Tests pour les transformations
