@@ -69,33 +69,33 @@ Concevoir un pipeline organisé avec des étapes distinctes et bien documentées
 - Limiter l’impact sur les bases de production (extraction planifiée pendant les heures creuses).
 - Manipuler les fichiers Parquet et CSV compressés sans étape de décompression inutile.
 
-📁 extraction_multisource
-  ├── install.sh                # Script d'installation automatique des dépendances
-  ├── main.py                   # Script principal orchestrant toutes les étapes du pipeline
-  ├── requirements.txt          # Liste des dépendances Python
-  ├── README.md                 # Documentation du projet
-  ├── .gitignore                # Fichiers et dossiers à exclure du contrôle de version Git
-  ├── 📁 src                    # Contient les scripts modulaires
-  │     ├── 📁 extraction       # Scripts pour l'extraction des données
-  │     │     ├── extract_sql.py      # Script pour extraire les données depuis la base SQL
-  │     │     ├── extract_parquet.py  # Script pour extraire les fichiers Parquet
-  │     │     ├── extract_csv.py      # Script pour extraire les fichiers CSV
-  │     ├── 📁 transformation    # Scripts pour transformer et organiser les données
-  │     │     ├── transform_to_csv.py # Transformation des données tabulaires en CSV
-  │     │     ├── image_processing.py # Traitement et extraction des images encodées
-  │     ├── 📁 utils            # Contient les outils utilitaires
-  │           ├── sas_generator.py    # Génération des SAS tokens pour l'accès au Data Lake
-  │           ├── logger.py           # Gestion des logs
-  │           ├── error_handler.py    # Gestion des erreurs et exceptions
-  ├── 📁 data                   # Dossier pour organiser les données
-  │     ├── 📁 raw              # Données brutes extraites
-  │     │     ├── sql           # Données issues de la base SQL
-  │     │     ├── parquet       # Données extraites des fichiers Parquet
-  │     │     ├── csv           # Données extraites des fichiers CSV
-  │     ├── 📁 processed        # Données transformées
-  │           ├── csv_final     # Données finales en CSV
-  │           ├── images        # Images extraites et sauvegardées
-  ├── 📁 tests                  # Scripts de tests unitaires pour valider le code
-        ├── test_extract_sql.py      # Tests pour le script SQL
-        ├── test_extract_parquet.py  # Tests pour le script Parquet
-        ├── test_transform.py        # Tests pour les transformations
+extraction_multisource/
+├── install.sh                # Script d'installation automatique des dépendances
+├── main.py                   # Script principal orchestrant toutes les étapes du pipeline
+├── requirements.txt          # Liste des dépendances Python
+├── README.md                 # Documentation du projet
+├── .gitignore                # Fichiers et dossiers à exclure du contrôle de version Git
+├── src/                      # Contient les scripts modulaires
+│   ├── extraction/           # Scripts pour l'extraction des données
+│   │   ├── extract_sql.py      # Script pour extraire les données depuis la base SQL
+│   │   ├── extract_parquet.py  # Script pour extraire les fichiers Parquet
+│   │   ├── extract_csv.py      # Script pour extraire les fichiers CSV
+│   ├── transformation/        # Scripts pour transformer et organiser les données
+│   │   ├── transform_to_csv.py # Transformation des données tabulaires en CSV
+│   │   ├── image_processing.py # Traitement et extraction des images encodées
+│   ├── utils/                 # Contient les outils utilitaires
+│       ├── sas_generator.py    # Génération des SAS tokens pour l'accès au Data Lake
+│       ├── logger.py           # Gestion des logs
+│       ├── error_handler.py    # Gestion des erreurs et exceptions
+├── data/                     # Dossier pour organiser les données
+│   ├── raw/                  # Données brutes extraites
+│   │   ├── sql/               # Données issues de la base SQL
+│   │   ├── parquet/           # Données extraites des fichiers Parquet
+│   │   ├── csv/               # Données extraites des fichiers CSV
+│   ├── processed/            # Données transformées
+│       ├── csv_final/         # Données finales en CSV
+│       ├── images/            # Images extraites et sauvegardées
+├── tests/                    # Scripts de tests unitaires pour valider le code
+│   ├── test_extract_sql.py      # Tests pour le script SQL
+│   ├── test_extract_parquet.py  # Tests pour le script Parquet
+│   ├── test_transform.py        # Tests pour les transformations
