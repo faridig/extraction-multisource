@@ -69,6 +69,11 @@ Concevoir un pipeline organisé avec des étapes distinctes et bien documentées
 - Limiter l’impact sur les bases de production (extraction planifiée pendant les heures creuses).
 - Manipuler les fichiers Parquet et CSV compressés sans étape de décompression inutile.
 
+# Arborescence du projet 🗂️
+
+Voici l'organisation des fichiers et dossiers du projet :
+
+```plaintext
 extraction_multisource/
 ├── install.sh                # Script d'installation automatique des dépendances
 ├── main.py                   # Script principal orchestrant toutes les étapes du pipeline
@@ -99,3 +104,5 @@ extraction_multisource/
 │   ├── test_extract_sql.py      # Tests pour le script SQL
 │   ├── test_extract_parquet.py  # Tests pour le script Parquet
 │   ├── test_transform.py        # Tests pour les transformations
+
+```
