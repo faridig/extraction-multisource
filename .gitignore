@@ -3,3 +3,8 @@ __pycache__/
 *.log
 .env
 venv/
+*.zip
+*.tgz
+*.csv
+*.xlsx
+*.parquet

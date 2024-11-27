@@ -4,3 +4,7 @@ pyarrow
 polars
 python-dotenv
 requests
+azure-storage-blob
+tqdm
+
+#tree -I "venv|__pycache__|*.dist-info|*.egg-info|contrib" pr l'arborescence du projet
