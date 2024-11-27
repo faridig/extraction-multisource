@@ -58,23 +58,23 @@ def move_csv_files(source_dir, target_dir):
                 shutil.move(source_path, target_path)
                 print(f"✅ Fichier déplacé : {file_name} vers {target_path}")
 
-if __name__ == "__main__":
-    # Chemins des fichiers et répertoires d'extraction
-    zip_file = "data/raw/blob/machine_learning/reviews.zip"
-    tgz_file = "data/raw/blob/machine_learning/reviews/amazon_review_polarity_csv.tgz"
+# if __name__ == "__main__":
+    # # Chemins des fichiers et répertoires d'extraction
+    # zip_file = "data/raw/blob/machine_learning/reviews.zip"
+    # tgz_file = "data/raw/blob/machine_learning/reviews/amazon_review_polarity_csv.tgz"
 
-    extract_to_zip = "data/raw/blob/machine_learning/reviews/"
-    extract_to_tgz = "data/raw/blob/machine_learning/reviews/extracted/"
-    processed_csv_dir = "data/processed/csv_final/"
+    # extract_to_zip = "data/raw/blob/machine_learning/reviews/"
+    # extract_to_tgz = "data/raw/blob/machine_learning/reviews/extracted/"
+    # processed_csv_dir = "data/raw/csv"
 
-    # Extraction des fichiers ZIP
-    print(f"📂 Début de l'extraction de {zip_file}...")
-    extract_zip_file(zip_file, extract_to_zip)
+    # # Extraction des fichiers ZIP
+    # print(f"📂 Début de l'extraction de {zip_file}...")
+    # extract_zip_file(zip_file, extract_to_zip)
 
-    # Extraction des fichiers TGZ
-    print(f"📂 Début de l'extraction de {tgz_file}...")
-    extract_tgz_file(tgz_file, extract_to_tgz)
+    # # Extraction des fichiers TGZ
+    # print(f"📂 Début de l'extraction de {tgz_file}...")
+    # extract_tgz_file(tgz_file, extract_to_tgz)
 
-    # Déplacement des fichiers CSV extraits
-    print(f"📂 Organisation des fichiers CSV...")
-    move_csv_files(extract_to_tgz, processed_csv_dir)
+    # # Déplacement des fichiers CSV extraits
+    # print(f"📂 Organisation des fichiers CSV...")
+    # move_csv_files(extract_to_tgz, processed_csv_dir)
