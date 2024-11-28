@@ -2,7 +2,7 @@ import os
 from azure.storage.blob import ContainerClient
 from dotenv import load_dotenv
 from tqdm import tqdm
-from extract_zip import extract_zip_file, extract_tgz_file, move_csv_files  # Importer les fonctions nécessaires
+from extraction.extract_zip_tgz_machine_learning import extract_zip_file, extract_tgz_file, move_csv_files  # Importer les fonctions nécessaires
 
 # Charger les variables d'environnement
 load_dotenv()
@@ -11,8 +11,8 @@ load_dotenv()
 account_name = os.getenv("ACCOUNT_NAME")
 container_name = "data"
 sas_token = os.getenv("SAS_TOKEN")
-local_download_path = "data/raw/blob"
-processed_csv_dir = "data/raw/csv/machine_learning"
+local_download_path = "data_temporaire"
+# processed_csv_dir = "data/raw/csv/machine_learning"
 account_url = f"https://{account_name}.blob.core.windows.net"
 
 if not account_name:
@@ -98,20 +98,20 @@ if __name__ == "__main__":
         # Étape 2 : Télécharger les fichiers
         download_files(container_client, blobs, local_download_path)
 
-        # Étape 3 : Extraire le fichier ZIP
-        print("\n📂 Extraction du fichier ZIP...")
-        zip_file_path = os.path.join(local_download_path, "machine_learning/reviews.zip")
-        extract_to_zip_path = os.path.join(local_download_path, "machine_learning/reviews/")
-        extract_zip_file(zip_file_path, extract_to_zip_path)
+        # # Étape 3 : Extraire le fichier ZIP
+        # print("\n📂 Extraction du fichier ZIP...")
+        # zip_file_path = os.path.join(local_download_path, "machine_learning/reviews.zip")
+        # extract_to_zip_path = os.path.join(local_download_path, "machine_learning/reviews/")
+        # extract_zip_file(zip_file_path, extract_to_zip_path)
 
-        # Étape 4 : Extraire le fichier TGZ
-        print("\n📂 Extraction du fichier TGZ...")
-        tgz_file_path = os.path.join(local_download_path, "machine_learning/reviews/amazon_review_polarity_csv.tgz")
-        extract_to_tgz_path = os.path.join(local_download_path, "machine_learning/reviews/extracted/")
-        extract_tgz_file(tgz_file_path, extract_to_tgz_path)
+        # # Étape 4 : Extraire le fichier TGZ
+        # print("\n📂 Extraction du fichier TGZ...")
+        # tgz_file_path = os.path.join(local_download_path, "machine_learning/reviews/amazon_review_polarity_csv.tgz")
+        # extract_to_tgz_path = os.path.join(local_download_path, "machine_learning/reviews/extracted/")
+        # extract_tgz_file(tgz_file_path, extract_to_tgz_path)
 
-        # Étape 5 : Déplacer les fichiers CSV extraits
-        print("\n📂 Organisation des fichiers CSV...")
-        move_csv_files(extract_to_tgz_path, processed_csv_dir)
+        # # Étape 5 : Déplacer les fichiers CSV extraits
+        # print("\n📂 Organisation des fichiers CSV...")
+        # move_csv_files(extract_to_tgz_path, processed_csv_dir)
 
-        print("✅ Téléchargement, extraction et organisation terminés.")
+        # print("✅ Téléchargement, extraction et organisation terminés.")

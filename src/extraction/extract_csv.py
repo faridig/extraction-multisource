@@ -21,6 +21,6 @@ def extract_and_copy_csv(source_folder, destination_folder):
 
 # Définir les chemins source et destination
 source_folder = "data/raw/blob/nlp_data"
-destination_folder = "data/raw/csv/nlp_data"
+destination_folder = "data/processed/csv_final/nlp_data"
 
 extract_and_copy_csv(source_folder, destination_folder)

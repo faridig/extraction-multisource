@@ -122,8 +122,8 @@ def decode_and_save_images_with_chunking(csv_path, output_folder, updated_csv_pa
 source_folder = "data/raw/blob/product_eval"
 destination_folder = "data/raw/parquet"
 output_file = "data/raw/csv/product_eval/product_eval.csv"
-image_output_folder = "data/processed/images"
-updated_csv_path = "data/processed/csv_final/product_eval.csv"
+image_output_folder = "data/processed/product_eval_images"
+updated_csv_path = "data/processed/csv_final/product_eval/product_eval.csv"
 
 # Étape 1 : Conversion des fichiers Parquet en CSV
 csv_files = process_parquet_files_with_dask(source_folder, destination_folder)
