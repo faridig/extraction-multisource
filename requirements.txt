@@ -6,5 +6,9 @@ python-dotenv
 requests
 azure-storage-blob
 tqdm
+dask[dataframe]
+setuptools 
+wheel
+
 
 #tree -I "venv|__pycache__|*.dist-info|*.egg-info|contrib" pr l'arborescence du projet

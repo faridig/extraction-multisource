@@ -12,7 +12,7 @@ account_name = os.getenv("ACCOUNT_NAME")
 container_name = "data"
 sas_token = os.getenv("SAS_TOKEN")
 local_download_path = "data/raw/blob"
-processed_csv_dir = "data/raw/csv"
+processed_csv_dir = "data/raw/csv/machine_learning"
 account_url = f"https://{account_name}.blob.core.windows.net"
 
 if not account_name:
