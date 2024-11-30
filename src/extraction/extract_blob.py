@@ -2,7 +2,7 @@ import os
 from azure.storage.blob import ContainerClient
 from dotenv import load_dotenv
 from tqdm import tqdm
-from extraction.extract_zip_tgz_machine_learning import extract_zip_file, extract_tgz_file, move_csv_files  # Importer les fonctions nécessaires
+from extraction.ml_data_extractor import extract_zip_file, extract_tgz_file, move_csv_files  # Importer les fonctions nécessaires
 
 # Charger les variables d'environnement
 load_dotenv()
